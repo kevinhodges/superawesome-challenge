@@ -8,15 +8,14 @@ describe('testing parser', () => {
   })
 
   describe('execute()', () => {
-    it('returns the passed having called all three parsing function with correct values', () => {
+    it('returns the result having called all three parsing function with correct values', () => {
+      const mock = ['A', 'b', 'b', '.']
+      const expected = ['a', 'b']
       const forceLowerCaseResult = ['a', 'b', 'b', '.']
       const forceLowerCaseStub = sandbox.stub(parser, 'forceLowerCase').returns(forceLowerCaseResult)
       const removeDuplicatesResult = ['a', 'b', '.']
       const removeDuplciatesStub = sandbox.stub(parser, 'removeDuplicates').returns(removeDuplicatesResult)
-      const removeInvalidsStub = sandbox.stub(parser, 'removeInvalids').returns(['a', 'b'])
-
-      const mock = ['A', 'b', 'b', '.']
-      const expected = ['a', 'b']
+      const removeInvalidsStub = sandbox.stub(parser, 'removeInvalids').returns(expected)
 
       expect(parser.execute(mock)).to.deep.equal(expected)
       expect(forceLowerCaseStub).to.have.been.calledOnce().and.to.have.been.calledWith(mock)
