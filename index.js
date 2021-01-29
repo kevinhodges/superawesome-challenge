@@ -1,27 +1,60 @@
-// const index2 = module.exports = {}
-
-// const fileIngestor = require('./fileIngestor')
-
-// index2.go = async () => {
-
-//   await fileIngestor.open('./data/example1.txt')
-
-//   let results = await fileIngestor.nextSetOfWordsPlease()
-//   console.log('results', results)
-// }
-
-
 const fs = require('fs')
+const readline = require('readline')
+
+console.time('duration')
+
 const parser = require('./lib/parser')
 const anagrammer = require('./lib/anagrammer')
 
-let data = fs.readFileSync(__dirname + '/data/example1.txt', 'utf8')
-let words = parser.execute(data)
+const rl = readline.createInterface({
+  input: fs.createReadStream('./data/example2.txt',{ highWaterMark: 10, encoding: 'utf8' })
+});
 
-const results = anagrammer.process(words)
+let thisCharacterLength = 0
+let previousCharacterLength = 0
+let data = []
 
-// output the results
-results.forEach(result => {
-  console.log(result.join(',') + '\n')
+rl.on('line', (line) => {
+  // first line
+  if(thisCharacterLength===0) {
+    thisCharacterLength = previousCharacterLength = line.length
+  } else {
+    thisCharacterLength = line.length
+    // check if this line is longer than the last
+    if(thisCharacterLength > previousCharacterLength) {
+      // the dataset is complete for `previousCharacterLength`
+      previousCharacterLength = thisCharacterLength
+      rl.pause()
+    }
+  }
+  
+  // add data to the data
+  // console.log('line-', line);
+  data.push(line)
+
 })
+
+rl.on('pause', () => {
+  // console.log('PAUSED')
+  processData()
+  // console.log('RESUMING in 2000')
+  setTimeout(rl.resume.bind(rl), 0)
+})
+
+rl.on('close', () => {
+  // console.log('CLOSED')
+  console.timeEnd('duration')
+})
+
+let processData = () => {
+  // console.log('-- ANAGRAMMING --')
+  let words = parser.execute(data)
+  // flush the old data
+  data = []
+  const results = anagrammer.process(words)
+  // output the results
+  results.forEach(result => {
+    console.log(result.join(',') + '\n')
+  })
+}
 

@@ -44,3 +44,8 @@ node index.js
 ```
 npm t
 ```
+
+### Thoughts
+
+In my first implementation using a simple `fs.readFileSyncFirst` example2.txt took ~20 seconds to complete parsing.
+My second attempt using a readStream brought the execution time down to ~10 seconds.
