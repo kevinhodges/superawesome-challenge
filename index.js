@@ -17,7 +17,7 @@ if (!fs.existsSync(filePath)) {
 }
 
 const rl = readline.createInterface({
-  input: fs.createReadStream(filePath,{ encoding: 'utf8' })
+  input: fs.createReadStream(filePath, { encoding: 'utf8' })
 })
 
 let thisCharacterLength = 0
@@ -30,7 +30,7 @@ rl.on('line', (line) => {
   } else {
     thisCharacterLength = line.length
     // check if this word is longer than the last
-    if(thisCharacterLength > previousCharacterLength) {
+    if (thisCharacterLength > previousCharacterLength) {
       // the dataset is complete for "previousCharacterLength" so we're
       // in a place to process it fully
       previousCharacterLength = thisCharacterLength
@@ -49,8 +49,8 @@ rl.on('close', () => {
   console.timeEnd('duration')
 })
 
-let processData = () => {
-  let words = parser.execute(data)
+const processData = () => {
+  const words = parser.execute(data)
   // flush the old data to keep our memory footprint down
   data = []
   const results = anagrammer.process(words)
@@ -58,4 +58,3 @@ let processData = () => {
     console.log(result.join(',') + '\n')
   })
 }
-
