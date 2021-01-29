@@ -1,14 +1,15 @@
 ## Data ingestion
 - Read the entire contents of the file in one go.
--- pros, quick and simple
--- cons, assumption is the entire data set might not fit in to memory
+  - pros, quick and simple
+  - cons, assumption is the entire data set might not fit in to memory
 - As the words are ordered be size, stream the data in one word length at a time and bin each data set before the next is ingested
--- pros, guarantees we wont hit OOM errors
--- cons, 
+  - pros, guarantees we wont hit OOM errors
+  - cons, adds some complexity
 
 ## Data parsing/sanitisation
 - Validate data as per assumptions
 - Unless we hit an unhandled exception we'll process as much of the data as possible
+- Needs to make the data as valid as possible for the anagrammer to do it's thing reliably
 
 ## Potential components/files
 - processor a la index.js
