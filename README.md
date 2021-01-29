@@ -19,7 +19,7 @@ The groups should be separated by newlines and the words inside each group by co
 
 ## Running the solution
 
-This solution assumes you have nodejs v14.3 and npm v6 installed globally.
+This solution assumes you have nodejs v14 and npm v6 installed globally.
 
 ### Clone the project:
 ```
@@ -48,4 +48,4 @@ npm t
 ### Thoughts
 
 In my first implementation using a simple `fs.readFileSyncFirst` example2.txt took ~20 seconds to complete parsing.
-My second attempt using a readStream brought the execution time down to ~10 seconds.
+My second attempt using a readStream brought the execution time down to ~8 seconds.
