@@ -54,5 +54,5 @@ npm t
 
 ### Performance
 
-In my first implementation using a simple `fs.readFileSyncFirst` example2.txt (the big one) took ~20 seconds to complete processing.
+In my first implementation using a simple `fs.readFileSync` example2.txt (the big one) took ~20 seconds to complete processing.
 My second attempt (and final) using a readStream brought the execution time down to ~8 seconds.
