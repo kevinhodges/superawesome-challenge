@@ -40,6 +40,12 @@ npm i
 node index.js [path to data file]
 ```
 
+** Example **
+
+```
+node index.js ./data/example1.txt
+```
+
 ### Run the tests:
 
 ```
