@@ -5,10 +5,10 @@
     "text",
     "json-summary"
   ],
-  "statements": 75,
-  "lines": 75,
-  "branches": 75,
-  "functions": 75,
+  "statements": 70,
+  "lines": 70,
+  "branches": 70,
+  "functions": 70,
   "exclude": [
     "test/**/*.js",
     "coverage"

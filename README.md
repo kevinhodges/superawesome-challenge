@@ -3,6 +3,7 @@
 ## The Task
 
 Write a program that takes as argument the path to a file containing one word per line, groups the words that are anagrams to each other, and writes to the standard output each of these groups.
+
 The groups should be separated by newlines and the words inside each group by commas.
 
 ## Assumptions
@@ -12,11 +13,11 @@ The groups should be separated by newlines and the words inside each group by co
 - The words are not necessarily actual English words, for example, “abc” and “cba” are both considered words for the sake of this exercise.
 
 ## Other considerations
+- If the file type passed at the cmd line is not a .txt we'll reject it, the parser isn't designed to handle potential funky encodings and whatnot
 - If more than one instance of a given word is found we'll ignore them
 - Any whitespace between words will be ingnored/skipped over
 - If we come across any capital letters they could technically still be an anagram so we'll force them to lowercase and continue as normal (assuming it's not a dupe)
 - Words must ONLY contain a-zA-Z characters. If a word contains any numbers, symbols or other ascii we will ignore it
-- If the file type passed at the cmd line is not a .txt we'll reject it, the parser isn't designed to handle potential funky encodings and whatnot
 
 ## Running the solution
 
@@ -37,7 +38,8 @@ npm i
 ### Run the solution:
 
 ```
-node index.js [path to data file]
+node index.js [relative path to data file]
+
 // example
 node index.js ./data/example1.txt
 ```
