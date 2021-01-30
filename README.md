@@ -38,11 +38,7 @@ npm i
 
 ```
 node index.js [path to data file]
-```
-
-**Example**
-
-```
+// example
 node index.js ./data/example1.txt
 ```
 
