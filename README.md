@@ -40,7 +40,7 @@ npm i
 node index.js [path to data file]
 ```
 
-** Example **
+**Example**
 
 ```
 node index.js ./data/example1.txt
