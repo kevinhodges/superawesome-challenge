@@ -34,8 +34,12 @@ My second attempt (and final) using a readStream brought the execution time down
 
 ### Big O analysis
 
+For the purpose of algorithm complexity analysis I will just consider the anagrammer algorithm `./lib/anagrammer.js`. 
+
+We have 2 x loops of up to the entire data set so both the best and worst case scenarios are `O(n²)` time.
 
 ### Reasons behind data structures chosen 
+
 - I've mostly used arrays across the solution as they're fast to access and there's no need for a more complex data structure until we get to the grouping logic for which I've simply got an object of keys with an array of associated anagrams as the value. Keep it simple!
 
 ### Given more time
