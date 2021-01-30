@@ -6,13 +6,13 @@ Write a program that takes as argument the path to a file containing one word pe
 
 The groups should be separated by newlines and the words inside each group by commas.
 
-## Assumptions
+### Assumptions
 
 - The words in the input file are ordered by size
 - The files may not fit into memory all at once (but all the words of the same size would)
 - The words are not necessarily actual English words, for example, “abc” and “cba” are both considered words for the sake of this exercise.
 
-## Other considerations
+### Other considerations
 - If the file type passed at the cmd line is not a .txt we'll reject it, the parser isn't designed to handle potential funky encodings and whatnot
 - If more than one instance of a given word is found we'll ignore them
 - Any whitespace between words will be ingnored/skipped over
@@ -21,16 +21,16 @@ The groups should be separated by newlines and the words inside each group by co
 
 ## The solution
 
-I've chosen to complete the task in Node.js, it's the language I'm currently most comfortable in and provides really good support for streaming large data files. 
+I've chosen to complete the task in node.js, it's the language I'm currently most comfortable with and provides really good support for streaming large data files. 
 
 The solution I've ended at uses a really nice node.js streams interface called [readline](https://nodejs.org/api/readline.html). It lends itself perfectly to the problem as we can stream the data in so not block the I/O while also not having to worry about buffers and odd chunk sizes as the data is read in.
 
-Although the biggest given example (1.7MB) works well simple reading the entire file in in one go, it will not scale well if we want to read GB's of data. To this end the stream logic I've implemented leans on the fact that words are guaranteed to be ordered by size and reads all words of the same size in and processes those before moving on to the next size. This means we don't have to worry about [OOM](https://en.wikipedia.org/wiki/Out_of_memory) problems and also gives us a massive performance uptick.
+Although the biggest given example (1.7MB) works well with simply reading the entire file in in one go, it will not scale well if we want to read GB's of data. To this end the stream logic I've implemented leans on the fact that words are guaranteed to be ordered by size and reads all words of the same size in and processes those before moving on to the next size. This means we don't have to worry about [OOM](https://en.wikipedia.org/wiki/Out_of_memory) problems and also gives us a massive performance uptick.
 
 ### Performance benchmarking
 
 In my first implementation using a simple `fs.readFileSync` example2.txt (the big one) took ~20 seconds to complete processing on my machine.
-My second attempt (and final) using a readStream brought the execution time down to ~8 seconds.
+My second attempt (current version 1.0.0) using a readStream brought the execution time down to ~8 seconds.
 
 ### Big O analysis
 
@@ -40,11 +40,11 @@ We have 2 x loops of up to the entire data set so both the best and worst case s
 
 ### Reasons behind data structures chosen 
 
-- I've mostly used arrays across the solution as they're fast to access and there's no need for a more complex data structure until we get to the grouping logic for which I've simply got an object of keys with an array of associated anagrams as the value. Keep it simple!
+I've mostly used arrays across the solution as they're fast to access and there's no need for a more complex data structure until we get to the grouping logic for which I've simply got an object of keys with an array of associated anagrams as the value. Keep it simple!
 
 ### Given more time
 
-- I'd like to better organise ./processor.js, it's too big so I'd break it down into a few more functions
+- I'd like to better organise `./processor.js`, it's too big so I'd break it down into a few more functions
 - More tests could be written for better resiliance
 
 ## Running the solution
