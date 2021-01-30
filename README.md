@@ -16,6 +16,7 @@ The groups should be separated by newlines and the words inside each group by co
 - Any whitespace between words will be ingnored/skipped over
 - If we come across any capital letters they could technically still be an anagram so we'll force them to lowercase and continue as normal (assuming it's not a dupe)
 - Words must ONLY contain a-zA-Z characters. If a word contains any numbers, symbols or other ascii we will ignore it
+- If the file type passed at the cmd line is not a .txt we'll reject it, the parser isn't designed to handle potential funky encodings and whatnot
 
 ## Running the solution
 
@@ -36,7 +37,7 @@ npm i
 ### Run the solution:
 
 ```
-node index.js
+node index.js [path to data file]
 ```
 
 ### Run the tests:
@@ -45,7 +46,7 @@ node index.js
 npm t
 ```
 
-Once the tests have completed running you can view the coverage report in `./coverage/index.html`
+**Hint:** Once the tests have completed running you can view the coverage report in `./coverage/index.html`
 
 ### Performance
 
