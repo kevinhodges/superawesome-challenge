@@ -1,0 +1,6 @@
+ab
+ba
+ca
+abc
+bca
+def

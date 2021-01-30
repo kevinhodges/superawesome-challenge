@@ -2,7 +2,6 @@ const parser = require('../../../lib/parser')
 const sandbox = require('sinon').createSandbox()
 
 describe('testing parser', () => {
-
   afterEach(() => {
     sandbox.restore()
   })
@@ -47,5 +46,4 @@ describe('testing parser', () => {
       expect(parser.removeInvalids(mock)).to.deep.equal(expected)
     })
   })
-
 })

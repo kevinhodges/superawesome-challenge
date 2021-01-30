@@ -2,7 +2,9 @@
     "env": {
         "browser": true,
         "commonjs": true,
-        "es2021": true
+        "es2021": true,
+        "mocha": true,
+        "node": true
     },
     "extends": [
         "standard"
@@ -11,5 +13,9 @@
         "ecmaVersion": 12
     },
     "rules": {
+    },
+    "globals": {
+        "expect": true,
+        "sinon": true
     }
 }

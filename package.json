@@ -8,7 +8,7 @@
   },
   "scripts": {
     "coverage": "nyc mocha --exit && nyc check-coverage",
-    "test": "nyc mocha --exit && nyc check-coverage",
+    "test": "npm run lint && npm run coverage",
     "lint": "eslint . --quiet && echo '✔ All good!'"
   },
   "repository": {
@@ -21,9 +21,6 @@
     "url": "https://github.com/kevinhodges/superawesome-challenge/issues"
   },
   "homepage": "https://github.com/kevinhodges/superawesome-challenge#readme",
-  "dependencies": {
-    "readline": "^1.3.0"
-  },
   "mocha": {
     "recursive": true,
     "reporter": "spec",
