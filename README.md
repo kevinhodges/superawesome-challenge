@@ -45,7 +45,9 @@ node index.js
 npm t
 ```
 
-### Thoughts
+Once the tests have completed running you can view the coverage report in `./coverage/index.html`
 
-In my first implementation using a simple `fs.readFileSyncFirst` example2.txt took ~20 seconds to complete parsing.
-My second attempt using a readStream brought the execution time down to ~8 seconds.
+### Performance
+
+In my first implementation using a simple `fs.readFileSyncFirst` example2.txt (the big one) took ~20 seconds to complete processing.
+My second attempt (and final) using a readStream brought the execution time down to ~8 seconds.
