@@ -4,7 +4,8 @@
   "description": "A solution to SuperAwesome's Anagram Assignment",
   "main": "index.js",
   "directories": {
-    "lib": "lib"
+    "lib": "lib",
+    "test": "test"
   },
   "scripts": {
     "coverage": "nyc mocha --exit && nyc check-coverage",
