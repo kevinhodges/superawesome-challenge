@@ -29,8 +29,8 @@ Although the biggest given example (1.7MB) works well with simply reading the en
 
 ### Performance benchmarking
 
-In my first implementation using a simple `fs.readFileSync` example2.txt (the big one) took ~20 seconds to complete processing on my machine.
-My second attempt (current version 1.0.0) using a readStream brought the execution time down to ~8 seconds.
+In my first implementation using a simple `fs.readFileSync` example2.txt (the big one) took ~20 seconds to complete processing on my machine and used ~75MB of memory.
+My second attempt (current version 1.0.0) using a readStream brought the execution time down to ~8 seconds and used ~25MB of memory, a significant improvement.
 
 ### Big O analysis
 
