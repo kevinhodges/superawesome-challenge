@@ -1,4 +1,4 @@
-const processor = require('../../processor')
+const processor = require('../../../lib/processor')
 const sinon = require('sinon')
 
 describe('testing processor', () => {

@@ -9,7 +9,7 @@
   },
   "scripts": {
     "coverage": "nyc mocha --exit && nyc check-coverage",
-    "test": "npm run lint && npm run coverage",
+    "test": "nyc mocha --exit && nyc check-coverage",
     "lint": "eslint . --quiet && echo '✔ All good!'"
   },
   "repository": {
