@@ -1,10 +1,12 @@
+### Thinking (my thought process before I started coding)
+
 ## Data ingestion
 - Read the entire contents of the file in one go.
   - pros, quick and simple
   - cons, assumption is the entire data set might not fit in to memory
 - As the words are ordered be size, stream the data in one word length at a time and bin each data set before the next is ingested
   - pros, guarantees we wont hit OOM errors
-  - cons, adds some complexity
+  - cons, adds some complexity, testing trickier
 
 ## Data parsing/sanitisation
 - Validate data as per assumptions

@@ -25,7 +25,7 @@ I've chosen to complete the task in node.js, it's the language I'm currently mos
 
 The solution I've ended at uses a really nice node.js streams interface called [readline](https://nodejs.org/api/readline.html). It lends itself perfectly to the problem as we can stream the data in so not block the I/O while also not having to worry about buffers and odd chunk sizes as the data is read in.
 
-Although the biggest given example (1.7MB) works well with simply reading the entire file in in one go, it will not scale well if we want to read GB's of data. To this end the stream logic I've implemented leans on the fact that words are guaranteed to be ordered by size and reads all words of the same size in and processes those before moving on to the next size. This means we don't have to worry about [OOM](https://en.wikipedia.org/wiki/Out_of_memory) problems and also gives us a massive performance uptick.
+Although the biggest given example2.txt (1.7MB) works well with simply reading the entire file in in one go, it will not scale well if we want to read GB's of data. To this end the stream logic I've implemented leans on the fact that words are guaranteed to be ordered by size and reads all words of the same size in and processes those before moving on to the next size. This means we don't have to worry about [OOM](https://en.wikipedia.org/wiki/Out_of_memory) problems and also gives us a massive performance uptick.
 
 ### Performance benchmarking
 
@@ -45,7 +45,7 @@ I've mostly used arrays across the solution as they're fast to access and there'
 ### Given more time
 
 - I'd like to better organise `./processor.js`, it's too big so I'd break it down into a few more functions
-- More tests could be written for better resiliance
+- More tests could be written for better resiliance and edge cases
 
 ## Running the solution
 
